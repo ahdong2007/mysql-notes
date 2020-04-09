@@ -10,7 +10,7 @@ MySQL 5.7推出了Loss-less Semi-Synchronous Replication，也就是常说的无
 
 为什么5.7版本之前的after_commit半同步模式不是无损复制呢？因为其在主从切换过程中存在幻读问题（非数据库理论的幻读）。即切换过后，之前用户“看到”的数据可能不存在了。原理不再赘述，一句话总结：after_commit在主机事务提交后将日志传送到从机，after_sync是先传再提交。
 
-![](/Users/masonhua/Downloads/1.png)
+![](..//pic/1.png)
 
 图1 after_sync vs after_commit
 
@@ -68,13 +68,13 @@ T after_commit （3）= 1 + 1 + 0.2 + 1 - 0.2 = 3 ms
 
 若还不明白，下面的图2和图3可能更为直观一些：
 
-![](/Users/masonhua/Downloads/2.png)
+![](../pic/2.png)
 
 图2 after_sync的事务T1~T3的耗时
 
 由于after_commit先提交事务，因此整个过程变为:
 
-![](/Users/masonhua/Downloads/3.png)
+![](../pic/3.png)
 
 图3 after_commit的事务T1~T3的耗时
 
@@ -92,7 +92,7 @@ T after_commit = 1 + 1 + 3 + 1 - 3 = 3 ms
 
 在并发的场景下，若事务之间的修改不冲突，则事务是可以同时提交的，也就是可以进入到组提交（Group Commit）优化流程中。那么这时，事务的提交变为了：
 
-![](/Users/masonhua/Downloads/4.png)
+![](../pic/4.png)
 
 图4 组提交优化
 
@@ -116,6 +116,6 @@ T[1~4] = 1 + 1 + 1 + 0.2 + 0.02 = 3.22 ms
 
 All in all，说到底，这个本质这是x + y = 1的问题：
 
-![](/Users/masonhua/Downloads/5.png)
+![](../pic/5.png)
 
 那么以后如果面试时被问这个问题该怎么办？直接告诉他，不用怂，直接上after_sync。
