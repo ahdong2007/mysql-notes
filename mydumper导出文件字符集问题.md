@@ -2,20 +2,20 @@
 
 **Centos 7.6, LANG=zh_CN.gbk使用mydumper导出文件后查看，文件的编码是iso-8859-1。**
 
-![image.png](http://mk.oa.com/web_api/v1/uploads/202004/EE687_2424_1504.png)
+<img title="" src="pic/mydumper字符集问题01.png" alt="image.png" data-align="inline">
 
 **Centos 7.2/tlinux2-0041, LANG=en_US.utf8使用mydumper导出文件后查看，文件的编码是UTF-8 Unicode text。**
 
-![image.png](http://mk.oa.com/web_api/v1/uploads/202004/A7E44_2820_1642.png)
+![image.png](pic/mydumper字符集问题02.png)
 
 **Centos 7.2, LANG=zh_CN.gbk使用mydumper导出文件后查看，文件的编码是UTF-8 Unicode text。**
-![image.png](http://mk.oa.com/web_api/v1/uploads/202004/0B67C_2890_1936.png)
+![](pic/mydumper字符集问题03.png)
 
 -------------------------
 
 ##### 查file命令的帮助文件发现，file并不能完全的辩识文件的字符集。
 
-![](/Users/masonhua/Library/Application%20Support/marktext/images/2020-04-07-15-34-10-image.png)
+![](pic/mydumper字符集问题04.png)
 
 ```
 The `file` command makes "best-guesses" about the encoding. Use the `-i` parameter to force `file` to print information about the encoding.
