@@ -1,7 +1,5 @@
 net_write/read_timeout
 
-
-
 sql/sql_connect.cc
 
 `bool login_connection(THD *thd)
@@ -21,8 +19,6 @@ sql/sql_connect.cc
 `   /* Connect completed, set read/write timeouts back to default */
   my_net_set_read_timeout(net, thd->variables.net_read_timeout);
   my_net_set_write_timeout(net, thd->variables.net_write_timeout);`
-
-
 
 -------------------------------------------
 

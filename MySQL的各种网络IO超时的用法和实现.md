@@ -2,8 +2,6 @@
 
 https://zhuanlan.zhihu.com/p/50739231
 
-
-
 ## **客户端C API**
 
 在C API中调用mysql_options()来设置mysql_init() 所创建的连接对象的属性，使用这三个选项可以设置连接超时和读写超时，单位都是秒。读写超时达到后C API的查询发送和结果获取函数会返回超时错误。
